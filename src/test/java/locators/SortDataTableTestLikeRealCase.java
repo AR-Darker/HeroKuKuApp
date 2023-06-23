@@ -1,3 +1,6 @@
+package locators;
+
+import locators.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
@@ -7,7 +10,6 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.testng.Assert.assertEquals;
-// ассерт не проходит(вроде же всё верно)
 public class SortDataTableTestLikeRealCase extends BaseTest {
 
     @Test
