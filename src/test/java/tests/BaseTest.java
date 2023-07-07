@@ -6,6 +6,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.ContextMenuPage;
+import pages.DynamicControlsPage;
+import pages.FileUploadPage;
+import pages.FramesPage;
 
 
 import java.util.concurrent.TimeUnit;
@@ -14,6 +17,9 @@ public class BaseTest {
 
     WebDriver driver;
     ContextMenuPage contextMenuPage;
+    DynamicControlsPage dynamicControlsPage;
+    FileUploadPage fileUploadPage;
+    FramesPage framesPage;
 
 
     @BeforeMethod
@@ -23,8 +29,11 @@ public class BaseTest {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-//не забудь иницализировать страницы
+//todo не забудь иницализировать страницы
         contextMenuPage = new ContextMenuPage(driver);
+        dynamicControlsPage = new DynamicControlsPage(driver);
+        fileUploadPage = new FileUploadPage(driver);
+        framesPage = new FramesPage(driver);
 
 
     }
@@ -32,6 +41,6 @@ public class BaseTest {
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
 
-//        driver.quit();
+        driver.quit();
     }
 }
