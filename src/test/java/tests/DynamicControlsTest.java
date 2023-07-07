@@ -7,9 +7,9 @@ import org.testng.annotations.Test;
 public class DynamicControlsTest extends BaseTest {
     @Test
     public void checkIfThereIsNoCheckboxOnPage() {
-        dynamicControlsPage.openDynamicControlsPage();
+        dynamicControlsPage.openPage();
         dynamicControlsPage.clickRemoveButton();
-        String text = dynamicControlsPage.waitingMessageItIsGone();
+        String text = dynamicControlsPage.waitingMessage();
 
         assertEquals(text, "It's gone!", "Текст не совпадает или отсутствует");
         assertTrue(dynamicControlsPage.checkPresenceOfAddButtonOnPage(), "Чекбокс на странице");
@@ -17,7 +17,7 @@ public class DynamicControlsTest extends BaseTest {
 
     @Test
     public void checkThatInputIsDisabled() {
-        dynamicControlsPage.openDynamicControlsPage();
+        dynamicControlsPage.openPage();
         dynamicControlsPage.findInputDisabled();
         dynamicControlsPage.clickEnableButton();
         dynamicControlsPage.waitingForTextItIsEnabled();
@@ -30,7 +30,7 @@ public class DynamicControlsTest extends BaseTest {
 
     @Test
     public void checkThatInputIsEnable() {
-        dynamicControlsPage.openDynamicControlsPage();
+        dynamicControlsPage.openPage();
         dynamicControlsPage.clickEnableButton();
         String text = dynamicControlsPage.waitingForTextItIsEnabled();
         dynamicControlsPage.inputTextInFieldInput();

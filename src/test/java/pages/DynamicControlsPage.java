@@ -2,9 +2,8 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import static org.testng.Assert.*;
+
 
 public class DynamicControlsPage extends BasePage{
 
@@ -16,14 +15,14 @@ public class DynamicControlsPage extends BasePage{
     public By inputDisabled = By.xpath("//input[@type='text' and @disabled]");
     public By inputEnable = By.xpath("//input[@type='text']");
     String messageItIsDisabled = "//p[@id='message']";
-    String messageItIsGone = "//p[@id='message']";
+    String messageIsGone = "//p[@id='message']";
     String messageItIsEnabled = "//p[@id='message']";
 
 
     public DynamicControlsPage(WebDriver driver) {
         super(driver);
     }
-    public void openDynamicControlsPage(){
+    public void openPage(){
         driver.get(url);
     }
 
@@ -31,8 +30,8 @@ public class DynamicControlsPage extends BasePage{
         driver.findElement(REMOVE_BUTTON).click();
     }
 
-    public String waitingMessageItIsGone(){
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(messageItIsGone))).getText();
+    public String waitingMessage(){
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(messageIsGone))).getText();
     }
 
     public boolean checkPresenceOfAddButtonOnPage(){
@@ -74,7 +73,7 @@ public class DynamicControlsPage extends BasePage{
         return isDisplayed;
     }
     public void inputTextInFieldInput(){
-        driver.findElement(inputEnable).sendKeys("Инпут работает");
+        driver.findElement(inputEnable).sendKeys("Ввод работает");
 
     }
 
