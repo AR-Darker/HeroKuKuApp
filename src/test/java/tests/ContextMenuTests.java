@@ -1,25 +1,19 @@
 package tests;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.interactions.Actions;
-import org.testng.Assert;
+import static org.testng.Assert.*;
+import org.openqa.selenium.Alert;
 import org.testng.annotations.Test;
 
 public class ContextMenuTests extends BaseTest {
-
     @Test
-    public void OpenPage() {
-        contextMenuPage.contextOpen();
+    public void checkCorrectnessOfAlertText(){
+        contextMenuPage.openContextMenuPage();
+        contextMenuPage.rightClickOnHotSpot();
+        Alert alert = driver.switchTo().alert();
+
+        assertEquals(alert.getText(),"You selected a context menu", "Неверный текст алерта");
+        alert.accept();
 
     }
-
-    @Test
-    public void RightClick() {
-        contextMenuPage.contextOpen();
-        contextMenuPage.rightClickToHotSpot();
-
-
-    }
-
 
 }

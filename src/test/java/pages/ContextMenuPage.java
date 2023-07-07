@@ -1,25 +1,28 @@
 package pages;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 public class ContextMenuPage extends BasePage {
-    WebElement hot_spot = driver.findElement(By.id("hot-spot"));
+    String url = "https://the-internet.herokuapp.com/context_menu";
 
+    public static final By HOT_SPOT = By.id("hot-spot");
 
     public ContextMenuPage(WebDriver driver) {
         super(driver);
     }
 
-    public void rightClickToHotSpot() {
-        Actions actions = new Actions(driver);
-        actions.moveToElement(hot_spot).contextClick().build().perform();
+
+    public void openContextMenuPage(){
+        driver.get(url);
+    }
+    public void rightClickOnHotSpot(){
+        actions.contextClick(driver.findElement(HOT_SPOT)).build().perform();
     }
 
-    public void contextOpen() {
-        driver.get("http://the-internet.herokuapp.com/context_menu");
-    }
+
+
 
 }
